@@ -5,21 +5,16 @@
  <project_license>GPL-2.0+</project_license>
  <project_group>SPRINGRTS</project_group>
  <name>Springy</name>
- <summary>Play online RTS games with the Spring engine</summary>
+ <summary>3D RTS game engine</summary>
  <releases>
   <release version="0.273" date="2021-08-21" />
  </releases>
  <description>
   <p>
-    Springlobby is a windowed client that allows you to download and play
-    a wide variety of games using the Spring engine, a popular RTS game engine.
-    Using this program, you can connect to one of dozens of free 24x7
-    battleroom servers on the internet that are accessible from our master server.
-  </p>
-  <p>
-    You'll need to download the spring RTS engine and supply lobby with
-    its installation path.
-    After that, springlobby will let you create an account and you're set to go!
+	  Spring is a versatile 3D RTS game engine.
+	  Using extensively Lua for scripting game-specific
+	  code to make nearly every aspect of the engine customizable,
+	  from GUI, to unit AI, to pathfinding.
   </p>
   <p>Popular games that use the spring engine are:</p>
   <ul>
@@ -32,23 +27,23 @@
    <li>XTA</li>
    <li>Lots more developed regularly!</li>
   </ul>
-  <p>The springlobby home page can be found at https://springlobby.springrts.com/ or you can visit our project page
-       on github at https://github.com/springlobby/springlobby/.</p>
+  <p>The springlobby home page can be found at https://springrts.com/ or you can visit our project page
+	  on github at https://github.com/spring/spring/.</p>
   <p>You can find out more about the spring engine and its games at https://springrts.com/.</p>
  </description>
  <screenshots>
   <screenshot type="default">
-    <image width="1920" height="1056">https://springlobby.springrts.com/screenshots/01.png</image>
-    <caption>The connect window</caption>
+    <image width="1920" height="1080">https://springrts.com/screenshot.php?id=1291</image>
+    <caption>Complete Annihilation</caption>
   </screenshot>
   <screenshot>
-    <image width="1920" height="1056">https://springlobby.springrts.com/screenshots/02.png</image>
-    <caption>Singleplayer</caption>
+    <image width="1580" height="1050">https://springrts.com/screenshot.php?id=899</image>
+    <caption>Complete Annihilation</caption>
   </screenshot>
  </screenshots>
- <url type="homepage">https://springlobby.springrts.com/</url>
- <url type="bugtracker">https://github.com/springlobby/springlobby/issues</url>
- <url type="help">https://github.com/springlobby/springlobby/wiki</url>
+ <url type="homepage">https://springrts.com/</url>
+ <url type="bugtracker">https://github.com/spring/spring/issues</url>
+ <url type="help">https://springrts.com/</url>
  <provides>
   <binary>springlobby</binary>
  </provides>
