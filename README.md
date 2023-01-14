@@ -1,9 +1,9 @@
-# springlobby flatpak package
+# spring flatpak package
 
-Flatpak package for springlobby.
-See https://springlobby.springrts.com/
+Flatpak package for spring
+See https://springrts.com/
 
-Buildbot info is available here https://flathub.org/builds/#/apps/com.springrts.SpringLobby
+Buildbot info is available here https://flathub.org/builds/#/apps/com.springrts.Spring
 A guide on flathub app maintenance is here: https://github.com/flathub/flathub/wiki/App-Maintenance
 
 ## Testing
@@ -14,22 +14,22 @@ https://docs.flatpak.org/en/latest/first-build.html
 Build 
 
 ```
-flatpak-builder --force-clean build-dir com.springrts.SpringLobby.yaml
+flatpak-builder --force-clean build-dir com.springrts.Spring.yaml
 ```
 
 Test
 
 ```
-flatpak-builder --run build-dir com.springrts.SpringLobby.yaml springlobby
+flatpak-builder --run build-dir com.springrts.Spring.yaml spring
 ```
 
 Install
 
 ```
-flatpak-builder --install --user --force-clean build-dir com.springrts.SpringLobby.yaml
+flatpak-builder --install --user --force-clean build-dir com.springrts.Spring.yaml
 ```
 
 Run installed version:
 ```
-flatpak run com.springrts.SpringLobby
+flatpak run com.springrts.Spring
 ```
