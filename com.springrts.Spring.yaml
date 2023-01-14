@@ -66,4 +66,4 @@ modules:
   post-install:
     - mkdir -p /app/share/appdata
     - cp spring.appdata.xml /app/share/appdata 
-    - install -T rts/spring.svg /app/share/icons/hicolor/scalable/apps/com.springrts.Spring.svg
+    - install -T $FLATPAK_BUILDER_BUILDDIR/rts/spring.svg $FLATPAK_DEST/share/icons/hicolor/scalable/apps/com.springrts.Spring.svg
