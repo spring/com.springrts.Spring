@@ -1,0 +1,68 @@
+app-id: com.springrts.Spring
+runtime: org.freedesktop.Platform
+runtime-version: '22.08'
+sdk: org.freedesktop.Sdk
+sdk-extensions:
+ - org.freedesktop.Sdk.Extension.openjdk11
+command: spring
+rename-icon: spring
+rename-desktop-file: spring.desktop
+rename-appdata-file: spring.appdata.xml
+finish-args:
+- --share=network
+- --socket=x11
+- --share=ipc
+- --device=dri
+- --socket=pulseaudio
+- --filesystem=~/.spring:create
+- --filesystem=~/.config/spring:create
+- --env=PATH=/app/jre/bin:/usr/bin
+
+modules:
+- name: openjdk
+  buildsystem: simple
+  build-commands:
+    - /usr/lib/sdk/openjdk11/install.sh
+- shared-modules/glew/glew.json
+- shared-modules/glu/glu-9.json
+- name: glut
+  buildsystem: cmake-ninja
+  sources:
+    - type: git
+      url: https://github.com/FreeGLUTProject/freeglut.git
+      commit: '63c0e78d84ecbfcf8accd8bac04404427899053b'
+- name: devil
+  buildsystem: simple
+  build-commands:
+    - cmake DevIL -DGLUT_INCLUDE_DIR=/usr/include/gl -DCMAKE_INSTALL_PREFIX=/app -G Ninja
+    - ninja install
+  sources:
+    - type: git
+      url: https://github.com/spring/devil.git
+      commit: 'c6feb55c90d9dfc4eb696c2a30f08e31ae4f4105'
+- name: p7zip
+  buildsystem: simple
+  build-commands:
+    - mkdir /app/bin
+    - cd CPP/7zip/Bundles/Alone2 && make -f makefile.gcc &&  cp _o/7zz /app/bin/7za
+  sources:
+    - type: archive
+      url: "https://www.7-zip.org/a/7z2201-src.tar.xz"
+      sha256: "393098730c70042392af808917e765945dc2437dee7aae3cfcc4966eb920fbc5"
+      strip-components: 0
+- name: spring
+  buildsystem: cmake-ninja
+  config-opts:
+   - -DJAVA_HOME=/usr/lib/sdk/openjdk11/jvm/openjdk-11
+   - -DENABLE_MANPAGES=FALSE
+  sources:
+  - type: git
+    url: https://github.com/spring/spring.git
+    commit: '74c4243cc33d3707dc8340e8fc87084756eb7e43'
+    disable-shallow-clone: true
+    disable-fsckobjects: true
+  - type: file
+    path: spring.appdata.xml
+  post-install:
+    - mkdir -p /app/share/appdata
+    - cp spring.appdata.xml /app/share/appdata 
