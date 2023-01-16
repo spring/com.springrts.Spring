@@ -44,7 +44,8 @@ modules:
   buildsystem: simple
   build-commands:
     - mkdir /app/bin
-    - cd CPP/7zip/Bundles/Alone2 && make -f makefile.gcc &&  cp _o/7zz /app/bin/7za
+    - make -C CPP/7zip/Bundles/Alone2 -f makefile.gcc -j $FLATPAK_BUILDER_N_JOBS
+    - install CPP/7zip/Bundles/Alone2/_o/7zz $FLATPAK_DEST/bin/7za
   sources:
     - type: archive
       url: "https://www.7-zip.org/a/7z2201-src.tar.xz"
