@@ -56,6 +56,13 @@ modules:
   config-opts:
    - -DJAVA_HOME=/usr/lib/sdk/openjdk11/jvm/openjdk-11
    - -DENABLE_MANPAGES=FALSE
+   - -DAI_TYPES=NATIVE # FIXME: build fails when generateSources is run in parallel
+
+  post-install:
+    - mkdir -p $FLATPAK_DEST/share/appdata
+    - cp spring.appdata.xml $FLATPAK_DEST/share/appdata
+    - mkdir -p $FLATPAK_DEST/share/icons/hicolor/scalable/apps/
+    - install -Tv $FLATPAK_BUILDER_BUILDDIR/rts/spring.svg $FLATPAK_DEST/share/icons/hicolor/scalable/apps/com.springrts.Spring.svg
   sources:
   - type: git
     url: https://github.com/spring/spring.git
@@ -64,7 +71,4 @@ modules:
     disable-fsckobjects: true
   - type: file
     path: spring.appdata.xml
-  post-install:
-    - mkdir -p /app/share/appdata
-    - cp spring.appdata.xml /app/share/appdata 
-    - install -T $FLATPAK_BUILDER_BUILDDIR/rts/spring.svg $FLATPAK_DEST/share/icons/hicolor/scalable/apps/com.springrts.Spring.svg
+
