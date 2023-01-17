@@ -16,7 +16,7 @@ finish-args:
 - --socket=pulseaudio
 - --filesystem=~/.spring:create
 - --filesystem=~/.config/spring:create
-- --env=PATH=/app/jre/bin:/usr/bin
+- --env=PATH=/app/jre/bin:/app/bin
 
 modules:
 - name: openjdk
